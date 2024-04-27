@@ -15,17 +15,21 @@
 </svelte:head>
 
 <div class="p-5">
-	<form on:submit|preventDefault={fetchRepositories}>
-		<input type="text" bind:value={username} placeholder="GitHub 사용자 이름 입력"/>
-		<button type="submit">데이터 가져오기</button>
+	<form class="flex gap-2" on:submit|preventDefault={fetchRepositories}>
+		<input class="input input-bordered" type="text" bind:value={username} placeholder="GitHub 사용자 이름 입력"/>
+		<button class="btn btn-primary" type="submit">가져오기</button>
 	</form>
 
 	{#if username}
-		<h1>{username}'s repositories</h1>
-		<ul>
+		<h1 class="font-bold">{username}'s repositories</h1>
+		<ul class="mt-2 grid gap-2">
 			{#each repositories as repo}
 				<li>
-					- {repo.name}
+					<div class="card bg-base-100 shadow-xl">
+						<div class="card-body">
+							<h2 class="card-title">{repo.name}</h2>
+						</div>
+					</div>
 				</li>
 			{/each}
 		</ul>
