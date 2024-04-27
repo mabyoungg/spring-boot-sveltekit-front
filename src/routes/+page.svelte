@@ -1,5 +1,10 @@
 <script>
-
+	$effect(() => {
+		window.$('body').append("안녕하세요.")
+		window.$('body').click(() => {
+			window.$('body').append("클릭")
+		});
+	});
 </script>
 
 <svelte:head>
