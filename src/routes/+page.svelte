@@ -8,5 +8,5 @@
 </svelte:head>
 
 <section class="text-red-500">
-	메인
+	<i class="fa-solid fa-user"></i>메인
 </section>
