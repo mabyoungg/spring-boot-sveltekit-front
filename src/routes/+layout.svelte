@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import "../app.css";
-	const {children} = $props();
+	const {children}: any = $props();
 </script>
 
 <div class="app">

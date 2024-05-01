@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	let username = $state('');
 
-	let repositories = $state([]);
+	let repositories: any[] = $state([]);
 
 	async function fetchRepositories() {
 		const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=10`);
