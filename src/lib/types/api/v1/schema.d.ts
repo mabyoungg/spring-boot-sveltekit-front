@@ -37,8 +37,8 @@ export interface components {
       statusCode?: number;
       msg?: string;
       data?: Record<string, never>;
-      success?: boolean;
       fail?: boolean;
+      success?: boolean;
     };
     LoginRequestBody: {
       username: string;
@@ -63,8 +63,8 @@ export interface components {
       statusCode?: number;
       msg?: string;
       data?: components["schemas"]["LoginResponseBody"];
-      success?: boolean;
       fail?: boolean;
+      success?: boolean;
     };
     GetMineResponseBody: {
       items?: components["schemas"]["PostDto"][];
@@ -88,8 +88,8 @@ export interface components {
       statusCode?: number;
       msg?: string;
       data?: components["schemas"]["GetMineResponseBody"];
-      success?: boolean;
       fail?: boolean;
+      success?: boolean;
     };
     MeResponseBody: {
       item?: components["schemas"]["MemberDto"];
@@ -100,8 +100,8 @@ export interface components {
       statusCode?: number;
       msg?: string;
       data?: components["schemas"]["MeResponseBody"];
-      success?: boolean;
       fail?: boolean;
+      success?: boolean;
     };
     Article: {
       /** Format: int64 */
