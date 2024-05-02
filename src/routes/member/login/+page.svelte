@@ -1,10 +1,5 @@
 <script lang="ts">
-    import "toastr/build/toastr.css"
-    import toastr from "toastr";
-    import createClient from "openapi-fetch";
-    import type { paths } from "$lib/types/api/v1/schema";
-
-    const { POST } = createClient<paths>({ baseUrl: "http://localhost:8090" });
+    import rq from '$lib/rq/rq.svelte';
 
     function submitLoginForm(this: HTMLFormElement) {
         const form: HTMLFormElement = this;
@@ -20,8 +15,8 @@
             form.password.focus();
             return;
         }
-
-        POST("/api/v1/members/login", {
+        
+        rq.apiEndPoints().POST("/api/v1/members/login", {
             credentials: 'include',
             body: {
                 username: form.username.value,
@@ -30,10 +25,14 @@
         })
         .then(response => {
             const data = response.data;
-            const error = response.error;
+            const error: any = response.error;
 
-            if ( data?.msg ) {
-                toastr.info(data?.msg);
+            if ( data ) {
+                rq.setLogined(data.data?.item ?? {})
+                rq.msgInfo(data?.msg ?? '로그인 성공');
+            }
+            else if ( error ) {
+                rq.msgError(error.message);
             }
         });
     }
